@@ -19,6 +19,7 @@ create table kurikulum (
         (regexp_like(parentid, '[T|K|A|S][A-D|0-9]\d\d\d[1-9]','c'))
 );
 
+
 create sequence seq_idtopik
 start with 1 increment by 1;
 create sequence seq_idkompetensi_a
@@ -63,16 +64,21 @@ begin
 end;
 /
 
-insert all 
-    into kurikulum values ('T00001', null, 'Berlindung')
-    into kurikulum values ('KA0001', 'T00001', 'Mengenal figur Buddha')
-    into kurikulum values ('A00001', 'KA0001', 'Mewarnai gambar Buddha sederhana')
-    into kurikulum values ('S00001', 'A00001', 'Kertas bergambar Buddha sederhana')
-    into kurikulum values ('S00002', 'A00001', 'Pensil warna')
-    into kurikulum values ('S00003', 'A00001', 'Meja lipat kecil')
-    into kurikulum values ('A00002', 'A00001', 'Mencocokkan gambar siluet Buddha')
-    into kurikulum values ('S00004', 'A00002', 'Kertas bergambar siluet Buddha')
-    into kurikulum values ('S00005', 'A00002', 'Lem kertas')     
+into kurikulum values ('T', null, 'Berlindung')
+    into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha')
+    into kurikulum values ('A', 'KA0001', 'Mewarnai gambar Buddha sederhana')
+    into kurikulum values ('S', 'A00001', 'Kertas bergambar Buddha sederhana')
+    into kurikulum values ('S', 'A00001', 'Pensil warna')
+    into kurikulum values ('S', 'A00001', 'Meja lipat kecil')
+    into kurikulum values ('A', 'KA0001', 'Mencocokkan gambar siluet Buddha')
+    into kurikulum values ('S', 'A00002', 'Kertas bergambar siluet Buddha')
+    into kurikulum values ('S', 'A00002', 'Lem kertas')  
+    into kurikulum values ('A', 'KA0001', 'Nyanyi lagu "Aku sayang Buddha"')
+    into kurikulum values ('S', 'A00003', 'Teks lagu "Aku sayang Buddha"')
+    into kurikulum values ('KA', 'T00001', 'Mengenal figur Sangha')
+    into kurikulum values ('KB', 'T00001', 'Mengenal figur Buddha, Dhamma, dan Sangha')
+    into kurikulum values ('A', 'KB0001', 'Penjelasan secara lisan dan visual')
+    into kurikulum values ('A', 'KB0001', 'Vihara gita')  
 select 1 from dual;
 
 create table Pembicara (

@@ -22,9 +22,9 @@ create table kurikulum (
     parentId varchar2(6) references kurikulum(idKur),
     isi varchar2(200),
     constraint validate_idkur check 
-        (regexp_like(idkur, '[T|K|A|S][A-D|0-9]\d\d\d[1-9]','c')),
+        (regexp_like(idkur, '[T|K|A|S][A-D|0-9]\d\d\d\d','c')),
     constraint validate_parentid check 
-        (regexp_like(parentid, '[T|K|A|S][A-D|0-9]\d\d\d[1-9]','c'))
+        (regexp_like(parentid, '[T|K|A|S][A-D|0-9]\d\d\d\d','c'))
 );
 
 create sequence seq_idtopik
@@ -73,14 +73,26 @@ end;
 
 insert all 
     into kurikulum values ('T', null, 'Berlindung')
-    into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha')
-    into kurikulum values ('A', 'KA0001', 'Mewarnai gambar Buddha sederhana')
-    into kurikulum values ('S', 'A00001', 'Kertas bergambar Buddha sederhana')
-    into kurikulum values ('S', 'A00001', 'Pensil warna')
-    into kurikulum values ('S', 'A00001', 'Meja lipat kecil')
-    into kurikulum values ('A', 'KA0001', 'Mencocokkan gambar siluet Buddha')
-    into kurikulum values ('S', 'A00002', 'Kertas bergambar siluet Buddha')
-    into kurikulum values ('S', 'A00002', 'Lem kertas')     
+	into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha')
+	into kurikulum values ('A', 'KA0001', 'Mewarnai gambar Buddha sederhana')
+	into kurikulum values ('S', 'A00001', 'Kertas bergambar Buddha sederhana')
+	into kurikulum values ('S', 'A00001', 'Pensil warna')
+	into kurikulum values ('S', 'A00001', 'Meja lipat kecil')
+	into kurikulum values ('A', 'KA0001', 'Mencocokkan gambar siluet Buddha')
+	into kurikulum values ('S', 'A00002', 'Kertas bergambar siluet Buddha')
+	into kurikulum values ('S', 'A00002', 'Lem kertas')
+	into kurikulum values ('A', 'KA0001', 'Nyanyi lagu "Aku sayang Buddha"')
+	into kurikulum values ('S', 'A00003', 'Teks lagu "Aku sayang Buddha"')
+	into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha, Dhamma, dan Sangha')
+	into kurikulum values ('A', 'KA0002', 'Penjelasan secara lisan dan visual')
+	into kurikulum values ('S', 'A00004', 'Foto/gambar/rupa yang menggambarkan Buddha, Dhamma, dan Sangha')
+	into kurikulum values ('A', 'KA0002', 'Vihara gita')
+	into kurikulum values ('S', 'A00005', 'Musik dan lirik')
+	into kurikulum values ('S', 'A00005', 'Lagu "Aku berlindung"')
+	into kurikulum values ('KA', 'T00001', 'Penjelasan Namaskara')
+	into kurikulum values ('A', 'KA0003', 'Mengenalkan jenis-jenis namaskara')
+	into kurikulum values ('S', 'A00006', 'Video namaskara berbagai aliran')
+	into kurikulum values ('S', 'A00006', 'Praktik namaskara')  
 select 1 from dual;
 
 create table Pembicara (
@@ -187,3 +199,13 @@ begin
     into :new.idplot from dual;
 end;
 /
+
+select *  from kurikulum
+where parentid in (
+    select idkur from kurikulum
+    where parentid in (
+        select idkur from kurikulum
+        where isi='Berlindung'
+    )
+)
+order by parentid;
