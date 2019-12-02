@@ -71,7 +71,7 @@ begin
 end;
 /
 
-insert into kurikulum values ('T', null, 'Berlindung')    ;
+insert into kurikulum values ('T', null, 'Berlindung');
 insert into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha');
 insert into kurikulum values ('A', 'KA0001', 'Mewarnai gambar Buddha sederhana');
 insert into kurikulum values ('S', 'A00001', 'Kertas bergambar Buddha sederhana');
@@ -92,11 +92,51 @@ insert into kurikulum values ('KA', 'T00001', 'Penjelasan Namaskara');
 insert into kurikulum values ('A', 'KA0003', 'Mengenalkan jenis-jenis namaskara');
 insert into kurikulum values ('S', 'A00006', 'Video namaskara berbagai aliran');
 insert into kurikulum values ('S', 'A00006', 'Praktik namaskara');
+insert into kurikulum values ('KA', 'T00001', 'Belajar Paritta dan artinya');
+insert into kurikulum values ('A', 'KA0004', 'Membaca paritta Buddhanussati lengkap');
+insert into kurikulum values ('S', 'A00007', 'Teks paritta Buddhanussati lengkap');
+insert into kurikulum values ('A', 'KA0004', 'Membaca paritta Dhammanussati lengkap');
+insert into kurikulum values ('S', 'A00008', 'Teks paritta Dhammanussati lengkap');
+insert into kurikulum values ('A', 'KA0004', 'Membaca paritta Sanghanussati lengkap');
+insert into kurikulum values ('S', 'A00009', 'Teks paritta Sanghanussati lengkap');
+insert into kurikulum values ('T', null, 'Pancasila');
+insert into kurikulum values ('KA', 'T00002', 'Menyayangi makhluk hidup');
+insert into kurikulum values ('A', 'KA0005', 'Mengajak murid memberi makan ikan');
+insert into kurikulum values ('S', 'A00010', 'Sayur untuk makanan ikan Koi di kolam koi VVD');
+insert into kurikulum values ('A', 'KA0005', 'Menonton film "Titi Tata" tentang menyelamatkan kodok');
+insert into kurikulum values ('S', 'A00011', 'Kartun "Titi Tata menyelamatkan kodok"');
+insert into kurikulum values ('KA', 'T00002', 'Penerapan Pancasila');
+insert into kurikulum values ('A', 'KA0006', 'Melatih sila ke 2 (mengambil permen sesuka hati dengan syarat semua anak harus mendapat permen) ');
+insert into kurikulum values ('S', 'A00012', 'Permen');
+insert into kurikulum values ('KA', 'T00002', 'Manfaat menjalankan Sila');
+insert into kurikulum values ('A', 'KA0007', 'Penjabaran manfaat menjalankan sila 1 s/d 5');
+insert into kurikulum values ('S', 'A00013', 'Teks');
+insert into kurikulum values ('KA', 'T00002', 'Kaitan Pancasila dengan Hukum Kamma');
+insert into kurikulum values ('A', 'KA0008', 'Penjelasan singkat tentang Pancasila dan Hukum Kamma');
+insert into kurikulum values ('A', 'KA0008', 'Menceritakan kisah pelanggaran Sila pada masa lampau dan akibatnya');
+insert into kurikulum values ('T', null, 'Riwayat Sang Buddha');
+insert into kurikulum values ('KA', 'T00003', 'Mengetahu kejadian kelahiran Pangeran Siddharta');
+insert into kurikulum values ('A', 'KA0009', 'Cerita kelahiran Pangeran Sidharta');
+insert into kurikulum values ('A', 'KA0009', 'Video riwayat singkat Buddha');
+insert into kurikulum values ('S', 'A00017', 'Laptop, infocus, dan layar');
+insert into kurikulum values ('KA', 'T00003', 'Kelahiran Boddhisatta');
+insert into kurikulum values ('A', 'KA0010', 'Menceritakan kelahiran Pangeran Siddharta');
+insert into kurikulum values ('KA', 'T00003', 'Pelepasan keduniawian Pangeran Siddharta');
+insert into kurikulum values ('KA', 'T00003', 'Pemutaran Roda Dhamma');
+insert into kurikulum values ('T', null, 'Berbuat Baik');
+insert into kurikulum values ('KA', 'T00004', 'Bisa membedakan perbuatan baik dan buruk melalui ucapan dan badan jasmani');
+insert into kurikulum values ('A', 'KA0011', 'Ilustrasi foto/video kegiatan sehari - hari secara sederhana');
+insert into kurikulum values ('S', 'A00019', 'Foto/video perbuatan baik');
+insert into kurikulum values ('S', 'A00019', 'Foto/video perbuatan buruk');
+insert into kurikulum values ('A', 'KA0012', 'Game board "Jalan Kebaikan"');
+insert into kurikulum values ('S', 'A00020', 'Game-board, dadu, pion');
+
 insert into kurikulum values ('KB', 'T00001', 'Mengenal kata "BUDDHA"');
 insert into kurikulum values ('KC', 'T00001', 'Definisi dan sifat-sifat Tiratana');
 insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Sugato, Lokavidu, Anuttaro, dst');
 insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Sanditthiko, Akaliko, Ehipassiko, dst');
 insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Supatipanno, Ujupatipanno, dst');
+
 create table Pembicara (
     idPembicara number primary key,
     nama varchar2(20) default '-',
@@ -224,10 +264,6 @@ insert into jadwalajar (tgl) values ('29-9-2019');
 
 insert into plot
 select null, 1, 'A', idkur, 1 from kurikulum where isi = 'Mengenal kata "BUDDHA"';
+
 insert into plot
 select null, 1, 'B', idkur, 2 from kurikulum where isi = 'Mengenal figur Buddha, Dhamma, dan Sangha';
-insert into plot select 1, 1, 'C', idkur, 
-(select idpembicara from pembicara where panggilan='Papa Dhika n Revata') as idpembicara
-from kurikulum where isi = 'Definisi dan sifat-sifat Tiratana';
-
-select * from plot;
