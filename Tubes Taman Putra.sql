@@ -71,30 +71,32 @@ begin
 end;
 /
 
-insert all 
-    into kurikulum values ('T', null, 'Berlindung')
-	into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha')
-	into kurikulum values ('A', 'KA0001', 'Mewarnai gambar Buddha sederhana')
-	into kurikulum values ('S', 'A00001', 'Kertas bergambar Buddha sederhana')
-	into kurikulum values ('S', 'A00001', 'Pensil warna')
-	into kurikulum values ('S', 'A00001', 'Meja lipat kecil')
-	into kurikulum values ('A', 'KA0001', 'Mencocokkan gambar siluet Buddha')
-	into kurikulum values ('S', 'A00002', 'Kertas bergambar siluet Buddha')
-	into kurikulum values ('S', 'A00002', 'Lem kertas')
-	into kurikulum values ('A', 'KA0001', 'Nyanyi lagu "Aku sayang Buddha"')
-	into kurikulum values ('S', 'A00003', 'Teks lagu "Aku sayang Buddha"')
-	into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha, Dhamma, dan Sangha')
-	into kurikulum values ('A', 'KA0002', 'Penjelasan secara lisan dan visual')
-	into kurikulum values ('S', 'A00004', 'Foto/gambar/rupa yang menggambarkan Buddha, Dhamma, dan Sangha')
-	into kurikulum values ('A', 'KA0002', 'Vihara gita')
-	into kurikulum values ('S', 'A00005', 'Musik dan lirik')
-	into kurikulum values ('S', 'A00005', 'Lagu "Aku berlindung"')
-	into kurikulum values ('KA', 'T00001', 'Penjelasan Namaskara')
-	into kurikulum values ('A', 'KA0003', 'Mengenalkan jenis-jenis namaskara')
-	into kurikulum values ('S', 'A00006', 'Video namaskara berbagai aliran')
-	into kurikulum values ('S', 'A00006', 'Praktik namaskara')  
-select 1 from dual;
-
+insert into kurikulum values ('T', null, 'Berlindung')    ;
+insert into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha');
+insert into kurikulum values ('A', 'KA0001', 'Mewarnai gambar Buddha sederhana');
+insert into kurikulum values ('S', 'A00001', 'Kertas bergambar Buddha sederhana');
+insert into kurikulum values ('S', 'A00001', 'Pensil warna');
+insert into kurikulum values ('S', 'A00001', 'Meja lipat kecil');
+insert into kurikulum values ('A', 'KA0001', 'Mencocokkan gambar siluet Buddha');
+insert into kurikulum values ('S', 'A00002', 'Kertas bergambar siluet Buddha');
+insert into kurikulum values ('S', 'A00002', 'Lem kertas');
+insert into kurikulum values ('A', 'KA0001', 'Nyanyi lagu "Aku sayang Buddha"');
+insert into kurikulum values ('S', 'A00003', 'Teks lagu "Aku sayang Buddha"');
+insert into kurikulum values ('KA', 'T00001', 'Mengenal figur Buddha, Dhamma, dan Sangha');
+insert into kurikulum values ('A', 'KA0002', 'Penjelasan secara lisan dan visual');
+insert into kurikulum values ('S', 'A00004', 'Foto/gambar/rupa yang menggambarkan Buddha, Dhamma, dan Sangha');
+insert into kurikulum values ('A', 'KA0002', 'Vihara gita');
+insert into kurikulum values ('S', 'A00005', 'Musik dan lirik');
+insert into kurikulum values ('S', 'A00005', 'Lagu "Aku berlindung"');
+insert into kurikulum values ('KA', 'T00001', 'Penjelasan Namaskara');
+insert into kurikulum values ('A', 'KA0003', 'Mengenalkan jenis-jenis namaskara');
+insert into kurikulum values ('S', 'A00006', 'Video namaskara berbagai aliran');
+insert into kurikulum values ('S', 'A00006', 'Praktik namaskara');
+insert into kurikulum values ('KB', 'T00001', 'Mengenal kata "BUDDHA"');
+insert into kurikulum values ('KC', 'T00001', 'Definisi dan sifat-sifat Tiratana');
+insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Sugato, Lokavidu, Anuttaro, dst');
+insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Sanditthiko, Akaliko, Ehipassiko, dst');
+insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Supatipanno, Ujupatipanno, dst');
 create table Pembicara (
     idPembicara number primary key,
     nama varchar2(20) default '-',
@@ -119,16 +121,13 @@ begin
 end;
 /
 
-insert into pembicara (nama)
-values ('Marlina');
-insert into pembicara (panggilan)
-values ('Mama Darrell');
-insert into pembicara (nama)
-values ('Ferlina');
-insert into pembicara (nama)
-values ('Samsul');
-insert into pembicara (nama, panggilan, tgl_lahir, alamat)
-values ('Jordi Yaputra', 'Jordi', '14-07-1999', 'Jl. Telekomunikasi, Gg. PGA');
+insert into pembicara (nama) values ('Marlina');
+insert into pembicara (panggilan) values ('Mama Darrell');
+insert into pembicara (nama) values ('Ferlina');
+insert into pembicara (nama) values ('Samsul');
+insert into pembicara (nama, panggilan, tgl_lahir, alamat) values ('Jordi Yaputra', 'Jordi', '14-07-1999', 'Jl. Telekomunikasi, Gg. PGA');
+insert into pembicara (nama) values ('Robert');
+insert into pembicara (nama, panggilan, tgl_lahir, alamat) values ('Hendry Filcozwei Jan', 'Papa Dhika n Revata', '11-5-1970', 'Kompleks Permata Kopo Blok EA No. 343, Bandung');
 
 create table kontak (
     idKontak number primary key,
@@ -174,6 +173,12 @@ for each row
 begin
     select seq_idjadwal.nextval
     into :new.idjadwal from dual;
+    if (:new.status is null) then
+        select case
+            when :new.tgl < sysdate then 'selesai'
+            else 'belum'
+        end case into :new.status from dual;
+    end if;
 end;
 /
 
@@ -209,3 +214,20 @@ where parentid in (
     )
 )
 order by parentid;
+
+insert into jadwalajar (tgl) values ('25-08-2019');
+insert into jadwalajar (tgl) values ('1-9-2019');
+insert into jadwalajar (tgl) values ('8-9-2019');
+insert into jadwalajar (tgl) values ('15-9-2019');
+insert into jadwalajar (tgl) values ('22-09-2019');
+insert into jadwalajar (tgl) values ('29-9-2019');
+
+insert into plot
+select null, 1, 'A', idkur, 1 from kurikulum where isi = 'Mengenal kata "BUDDHA"';
+insert into plot
+select null, 1, 'B', idkur, 2 from kurikulum where isi = 'Mengenal figur Buddha, Dhamma, dan Sangha';
+insert into plot select 1, 1, 'C', idkur, 
+(select idpembicara from pembicara where panggilan='Papa Dhika n Revata') as idpembicara
+from kurikulum where isi = 'Definisi dan sifat-sifat Tiratana';
+
+select * from plot;
