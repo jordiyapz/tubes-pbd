@@ -115,7 +115,7 @@ insert into kurikulum values ('KA', 'T00002', 'Kaitan Pancasila dengan Hukum Kam
 insert into kurikulum values ('A', 'KA0008', 'Penjelasan singkat tentang Pancasila dan Hukum Kamma');
 insert into kurikulum values ('A', 'KA0008', 'Menceritakan kisah pelanggaran Sila pada masa lampau dan akibatnya');
 insert into kurikulum values ('T', null, 'Riwayat Sang Buddha');
-insert into kurikulum values ('KA', 'T00003', 'Mengetahu kejadian kelahiran Pangeran Siddharta');
+insert into kurikulum values ('KA', 'T00003', 'Mengetahui kejadian kelahiran Pangeran Siddharta');
 insert into kurikulum values ('A', 'KA0009', 'Cerita kelahiran Pangeran Sidharta');
 insert into kurikulum values ('A', 'KA0009', 'Video riwayat singkat Buddha');
 insert into kurikulum values ('S', 'A00017', 'Laptop, infocus, dan layar');
@@ -131,11 +131,33 @@ insert into kurikulum values ('S', 'A00019', 'Foto/video perbuatan buruk');
 insert into kurikulum values ('A', 'KA0012', 'Game board "Jalan Kebaikan"');
 insert into kurikulum values ('S', 'A00020', 'Game-board, dadu, pion');
 
-insert into kurikulum values ('KB', 'T00001', 'Mengenal kata "BUDDHA"');
+insert into kurikulum values ('KA', 'T00001', 'Mengenal kata "BUDDHA"');
 insert into kurikulum values ('KC', 'T00001', 'Definisi dan sifat-sifat Tiratana');
 insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Sugato, Lokavidu, Anuttaro, dst');
 insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Sanditthiko, Akaliko, Ehipassiko, dst');
 insert into kurikulum values ('A', 'KC0001', 'Mempelajari arti Supatipanno, Ujupatipanno, dst');
+insert into kurikulum values ('KD', 'T00001', 'Perenungan sifat-sifat Tiratana (Meditasi)');
+insert into kurikulum values ('A', 'KD0001', 'Perenungan Buddhanussati');
+insert into kurikulum values ('A', 'KD0001', 'Perenungan Dhammanussati');
+insert into kurikulum values ('A', 'KD0001', 'Perenungan Sanghanussati');
+insert into kurikulum values ('KB', 'T00001', 'Mengenal figur Buddha, Dhamma, dan Sangha');
+insert into kurikulum values ('KB', 'T00001', 'Definisi Tiratana');
+insert into kurikulum values ('KB', 'T00001', 'Belajar paritta dan artinya');
+insert into kurikulum values ('KB', 'T00001', 'Cara menghormat Tiratana');
+insert into kurikulum values ('KB', 'T00001', 'Penjelasan Namaskara');
+insert into kurikulum values ('A', 'KB0001', 'Penjelasan secara lisan dan visual');
+insert into kurikulum values ('A', 'KB0001', 'Vihara gita');
+insert into kurikulum values ('A', 'KB0002', 'Penjelasan secara lisan dan visual (teori)');
+insert into kurikulum values ('A', 'KB0002', 'Acak kata');
+insert into kurikulum values ('A', 'KB0002', 'Mencocokkan gambar dan kata');
+insert into kurikulum values ('A', 'KB0003', 'Membaca paritta Tisarana');
+insert into kurikulum values ('A', 'KB0003', 'Simulasi tidur');
+insert into kurikulum values ('A', 'KB0004', 'Membersihkan altar dan rupang');
+insert into kurikulum values ('A', 'KB0004', 'Membuat persembahan altar sederhana');
+insert into kurikulum values ('A', 'KB0004', 'Menghargai produk Dhamma (tidak menaruh buku Dhamma sembarangan / tidak hormat)');
+insert into kurikulum values ('A', 'KB0005', 'Arti Namaskara');
+insert into kurikulum values ('A', 'KB0005', 'Mengajarkan 5 titik sentuk');
+insert into kurikulum values ('A', 'KB0005', 'Menunjukkan namaskara versi Theravada');
 
 create table Pembicara (
     idPembicara number primary key,
@@ -166,8 +188,24 @@ insert into pembicara (panggilan) values ('Mama Darrell');
 insert into pembicara (nama) values ('Ferlina');
 insert into pembicara (nama) values ('Samsul');
 insert into pembicara (nama, panggilan, tgl_lahir, alamat) values ('Jordi Yaputra', 'Jordi', '14-07-1999', 'Jl. Telekomunikasi, Gg. PGA');
+insert into pembicara (nama, panggilan, tgl_lahir, alamat) values ('Tushita Fariyani', 'Icha', '14-08-1999', 'Jl. Wijaya Kusuma, Margaasih');
 insert into pembicara (nama) values ('Robert');
 insert into pembicara (nama, panggilan, tgl_lahir, alamat) values ('Hendry Filcozwei Jan', 'Papa Dhika n Revata', '11-5-1970', 'Kompleks Permata Kopo Blok EA No. 343, Bandung');
+insert into pembicara (nama) values ('Dimas');
+insert into pembicara (nama) values ('Agus');
+insert into pembicara (nama) values ('Asep');
+insert into pembicara (nama) values ('Felix');
+insert into pembicara (nama) values ('Kevin');
+insert into pembicara (nama) values ('Deni');
+insert into pembicara (nama) values ('Abas');
+insert into pembicara (nama) values ('Owen');
+insert into pembicara (nama) values ('Gagan');
+insert into pembicara (nama) values ('Ruben');
+insert into pembicara (nama) values ('Alex');
+insert into pembicara (nama) values ('Edward');
+insert into pembicara (nama) values ('Lisa');
+insert into pembicara (nama) values ('Ayu');
+insert into pembicara (nama) values ('Putri');
 
 create table kontak (
     idKontak number primary key,
@@ -191,9 +229,90 @@ end;
 /
 
 insert into kontak (idpembicara, tipe, data)
-values (2, 'wa', '081388341598');
+values (1, 'WA', '082250057777');
 insert into kontak (idpembicara, tipe, data)
-values (5, 'wa', '082196510849');
+values (1, 'IG', 'Marlin');
+insert into kontak (idpembicara, tipe, data)
+values (1, 'WA', '081245678912');
+insert into kontak (idpembicara, tipe, data)
+values (2, 'WA', '081388341598');
+insert into kontak (idpembicara, tipe, data)
+values (2, 'WA', '0852345678912');
+insert into kontak (idpembicara, tipe, data)
+values (3, 'WA', '085222278912');
+insert into kontak (idpembicara, tipe, data)
+values (4, 'line', 'sam');
+insert into kontak (idpembicara, tipe, data)
+values (4, 'WA', '085244578912');
+insert into kontak (idpembicara, tipe, data)
+values (5, 'WA', '082196510849');
+insert into kontak (idpembicara, tipe, data)
+values (5, 'line', 'jordiyapz');
+insert into kontak (idpembicara, tipe, data)
+values (5, 'IG', 'jordiyaputra');
+insert into kontak (idpembicara, tipe, data)
+values (6, 'WA', '081234567891');
+insert into kontak (idpembicara, tipe, data)
+values (6, 'line', 'roro');
+insert into kontak (idpembicara, tipe, data)
+values (7, 'WA', '082133510841');
+insert into kontak (idpembicara, tipe, data)
+values (7, 'IG', 'hendryfil');
+insert into kontak (idpembicara, tipe, data)
+values (8, 'WA', '082216771231');
+insert into kontak (idpembicara, tipe, data)
+values (8, 'IG', 'Dimasr');
+insert into kontak (idpembicara, tipe, data)
+values (8, 'line', 'dimdim');
+insert into kontak (idpembicara, tipe, data)
+values (9, 'WA', '0852345678912');
+insert into kontak (idpembicara, tipe, data)
+values (9, 'line', 'gusgus');
+insert into kontak (idpembicara, tipe, data)
+values (10, 'IG', 'asepaja');
+insert into kontak (idpembicara, tipe, data)
+values (10, 'WA', '0852345677712');
+insert into kontak (idpembicara, tipe, data)
+values (11, 'WA', '081234444555');
+insert into kontak (idpembicara, tipe, data)
+values (12, 'WA', '0852345678812');
+insert into kontak (idpembicara, tipe, data)
+values (13, 'WA', '085234278812');
+insert into kontak (idpembicara, tipe, data)
+values (13, 'line', 'deden');
+insert into kontak (idpembicara, tipe, data)
+values (14, 'WA', '08523178812');
+insert into kontak (idpembicara, tipe, data)
+values (14, 'IG', 'abas2');
+insert into kontak (idpembicara, tipe, data)
+values (15, 'WA', '085234567802');
+insert into kontak (idpembicara, tipe, data)
+values (15, 'line', 'ah234');
+insert into kontak (idpembicara, tipe, data)
+values (15, 'IG', 'owens');
+insert into kontak (idpembicara, tipe, data)
+values (16, 'WA', '085298678812');
+insert into kontak (idpembicara, tipe, data)
+values (16, 'IG', 'Gans11');
+insert into kontak (idpembicara, tipe, data)
+values (17, 'WA', '085566677882');
+insert into kontak (idpembicara, tipe, data)
+values (17, 'WA', '085234567812');
+insert into kontak (idpembicara, tipe, data)
+values (18, 'WA', '085234467812');
+insert into kontak (idpembicara, tipe, data)
+values (18, 'line', 'Al');
+insert into kontak (idpembicara, tipe, data)
+values (19, 'WA', '085233378812');
+insert into kontak (idpembicara, tipe, data)
+values (20, 'IG', 'Liz');
+insert into kontak (idpembicara, tipe, data)
+values (20, 'WA', '081225678812');
+insert into kontak (idpembicara, tipe, data)
+values (21, 'line', 'ayuning');
+insert into kontak (idpembicara, tipe, data)
+values (22, 'line', 'puput');
+
 
 create table jadwalajar (
     idjadwal varchar2(8) primary key,
@@ -245,25 +364,82 @@ begin
 end;
 /
 
-select *  from kurikulum
-where parentid in (
-    select idkur from kurikulum
-    where parentid in (
-        select idkur from kurikulum
-        where isi='Berlindung'
-    )
-)
-order by parentid;
-
 insert into jadwalajar (tgl) values ('25-08-2019');
 insert into jadwalajar (tgl) values ('1-9-2019');
 insert into jadwalajar (tgl) values ('8-9-2019');
 insert into jadwalajar (tgl) values ('15-9-2019');
 insert into jadwalajar (tgl) values ('22-09-2019');
 insert into jadwalajar (tgl) values ('29-9-2019');
+insert into jadwalajar (tgl) values ('6-10-2019');
+insert into jadwalajar (tgl) values ('13-10-2019');
+insert into jadwalajar (tgl) values ('20-10-2019');
+insert into jadwalajar (tgl) values ('27-10-2019');
+insert into jadwalajar (tgl) values ('3-11-2019');
+insert into jadwalajar (tgl) values ('10-11-2019');
+insert into jadwalajar (tgl) values ('17-11-2019');
+insert into jadwalajar (tgl) values ('24-11-2019');
+insert into jadwalajar (tgl) values ('12-1-2020');
+insert into jadwalajar (tgl) values ('19-1-2020');
+insert into jadwalajar (tgl) values ('26-1-2020');
+insert into jadwalajar (tgl) values ('2-2-2020');
+insert into jadwalajar (tgl) values ('9-2-2020');
+insert into jadwalajar (tgl) values ('16-2-2020');
 
-insert into plot
-select null, 1, 'A', idkur, 1 from kurikulum where isi = 'Mengenal kata "BUDDHA"';
+insert into plot select 0, 1, 'A', 'KA0014', 7 from dual;
+insert into plot select 0, 1, 'B', 'KA0002', 2 from dual;
+insert into plot select 0, 1, 'C', 'A00021', 8 from dual;
+insert into plot select 0, 1, 'C', 'A00022', 8 from dual;
+insert into plot select 0, 1, 'D', 'A00024', 3 from dual;
+insert into plot select 0, 2, 'A', 'KA0001', null from dual;
+insert into plot select 0, 2, 'B', 'KB0002', null from dual;
+insert into plot select 0, 2, 'C', 'A00023', null from dual;
+insert into plot select 0, 2, 'D', 'A00025', null from dual;
 
-insert into plot
-select null, 1, 'B', idkur, 2 from kurikulum where isi = 'Mengenal figur Buddha, Dhamma, dan Sangha';
+insert into plot select 0, 3, 'A', 'KA0003', 4 from dual;
+insert into plot select 0, 3, 'B', 'A00001', 3 from dual;
+insert into plot values (0, 3, 'C', 'A00002', 10);
+insert into plot values (0, 3, 'D', 'A00004', 14);
+insert into plot values (0, 4, 'ABCD', 'A00017', 5);
+insert into plot values (0, 5, 'A', 'A00006', 16);
+insert into plot values (0, 5, 'BC', 'KA0004', 13);
+insert into plot values (0, 5, 'D', 'A00012', 5);
+insert into plot values (0, 6, 'A', 'A00011', 19);
+insert into plot values (0, 6, 'B', 'A00003', 18);
+insert into plot values (0, 6, 'C', 'A00005', 21);
+insert into plot values (0, 6, 'D', 'A00026', 16);
+insert into plot values (0, 7, 'AB', 'A00020', 13);
+insert into plot values (0, 7, 'CD', 'A00018', 6);
+insert into plot values (0, 8, 'C', 'A00014', 5);
+insert into plot values (0, 8, 'AB', 'A00010', 6);
+insert into plot values (0, 8, 'D', 'A00013', 18);
+insert into plot values (0, 9, 'A', 'A00019', 14);
+insert into plot values (0, 9, 'B', 'A00015', 17);
+insert into plot values (0, 9, 'C', 'A00016', 11);
+insert into plot values (0, 9, 'D', 'A00013', 14);
+insert into plot values (0, 10, 'A', 'A00027', 11);
+insert into plot values (0, 10, 'B', 'A00037', 12);
+insert into plot values (0, 10, 'C', 'A00036', 19);
+insert into plot values (0, 10, 'D', 'A00034', 12);
+insert into plot values (0, 11, 'A', 'A00028', 6);
+insert into plot values (0, 11, 'B', 'A00038', 3);
+insert into plot values (0, 11, 'C', 'A00032', 1);
+insert into plot values (0, 11, 'D', 'A00035', 5);
+insert into plot values (0, 12, 'AB', 'A00033', 3);
+insert into plot values (0, 12, 'CD', 'A00039', 8);
+
+select idplot, tgl, kelas, idkur, isi, nama, panggilan
+from plot 
+left outer join kurikulum using (idkur)
+left outer join jadwalajar using (idjadwal)
+left outer join pembicara using (idpembicara)
+order by idplot;
+
+select * from kurikulum 
+where 
+(substr(parentid,1,1)='K' 
+ or substr(idkur,1,1)='A') 
+and idkur not in (select idkur from plot)
+and parentid not in (
+    select idkur from plot
+    where substr(idkur,1,1)='K'
+);
